@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autodoc-agent"
+version = "2.0.0"
+description = "Enterprise auto-documentation agent — generates comprehensive docs from source code using local LLMs"
+requires-python = ">=3.12"
+dependencies = [
+    "tree-sitter",
+    "tree-sitter-language-pack",
+    "networkx",
+    "litellm",
+    "click",
+    "rich",
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "python-dotenv",
+    "jinja2",
+    "tiktoken",
+    "gitpython",
+    "pyyaml",
+    "pathspec",
+    "langgraph>=0.3.0",
+    "langchain-core>=0.3.0",
+    "langchain-community>=0.3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "mypy"]
+
+[project.scripts]
+autodoc = "autodoc.cli.main:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["autodoc*"]
