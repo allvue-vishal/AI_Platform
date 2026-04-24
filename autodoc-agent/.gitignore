@@ -27,3 +27,6 @@ env/
 # OS
 .DS_Store
 Thumbs.db
+
+# Output (optional - remove this section if you want to track generated docs)
+docs-output/
