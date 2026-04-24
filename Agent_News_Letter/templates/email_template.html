@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Atlas - Daily Digest</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f4f7; font-family:Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+
+<table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f7; padding:24px 0;">
+<tr><td align="center">
+<table width="640" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+
+<!-- Header -->
+<tr>
+<td style="background:linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4a8a 100%); padding:32px 40px; text-align:center;">
+  <h1 style="margin:0; color:#ffffff; font-size:24px; font-weight:700; letter-spacing:0.5px;">
+    AI Atlas
+  </h1>
+  <p style="margin:6px 0 0; color:#94a3b8; font-size:14px;">
+    Daily AI Research Digest &mdash; {{ date }}
+  </p>
+</td>
+</tr>
+
+{% if top_story %}
+<!-- Top Story -->
+<tr>
+<td style="padding:28px 40px 0;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#eff6ff; border-left:4px solid #2563eb; border-radius:8px; padding:20px;">
+  <tr><td>
+    <p style="margin:0 0 8px; font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#1d4ed8; font-weight:700;">
+      Top Story
+    </p>
+    <a href="{{ top_story.url }}" style="color:#0f172a; text-decoration:none; font-size:17px; font-weight:600; line-height:1.4;">
+      {{ top_story.title }}
+    </a>
+    <p style="margin:10px 0 0; color:#334155; font-size:14px; line-height:1.7;">
+      {{ top_story.summary }}
+    </p>
+  </td></tr>
+  </table>
+</td>
+</tr>
+{% endif %}
+
+{% for category, cat_items in categories.items() %}
+{% if cat_items %}
+<!-- Category: {{ category }} -->
+<tr>
+<td style="padding:28px 40px 0;">
+  <h2 style="margin:0 0 16px; font-size:16px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; text-transform:uppercase; letter-spacing:0.5px;">
+    {{ category }}
+  </h2>
+
+  {% for item in cat_items %}
+  <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:14px; padding-bottom:14px; {% if not loop.last %}border-bottom:1px solid #f1f5f9;{% endif %}">
+  <tr><td>
+    <a href="{{ item.url }}" style="color:#1e40af; text-decoration:none; font-size:15px; font-weight:600; line-height:1.4;">
+      {{ item.title }}
+    </a>
+    <p style="margin:6px 0 0; color:#475569; font-size:13px; line-height:1.7;">
+      {{ item.summary }}
+    </p>
+  </td></tr>
+  </table>
+  {% endfor %}
+
+</td>
+</tr>
+{% endif %}
+{% endfor %}
+
+<!-- Footer -->
+<tr>
+<td style="padding:28px 40px; text-align:center; border-top:1px solid #e2e8f0;">
+  <p style="margin:0; color:#94a3b8; font-size:12px;">
+    AI Atlas &mdash; mapping the AI world, daily<br>
+    {{ date }}
+  </p>
+</td>
+</tr>
+
+</table>
+</td></tr>
+</table>
+
+</body>
+</html>

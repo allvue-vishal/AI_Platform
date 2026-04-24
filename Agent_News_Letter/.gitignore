@@ -1,0 +1,35 @@
+# ── Secrets & credentials ─────────────────────────────────
+.env
+credentials.json
+token.json
+
+# ── Python ────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Virtual environments ─────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Logs ──────────────────────────────────────────────────
+logs/
+
+# ── IDE / Editor ──────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+
+# ── OS files ──────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+Desktop.ini
